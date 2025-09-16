@@ -50,6 +50,29 @@ a[6] # there is no 6th element from the vector -> not error -> return NA
 length(a) #show how many data in vector
 
 # 4. Factors
-class(mtcars$gear) # numberic class
-class(factor(mtcars$gear)) # factor class
+class(mtcars) # dataframe type
+class(mtcars$gear) # numberic type
+factor(mtcars$gear)
+class(factor(mtcars$gear)) # factor type
 factor(mtcars$gear)[4]
+colnames(mtcars) # find all columns name
+rownames(mtcars) # find all rows name
+
+mtcars$gear
+mtcars$am
+table(mtcars$gear) # create frequency table of gear field
+table(mtcars$am) # create frequency table of am field
+table(mtcars$gear, mtcars$am) # create 2d frequency table relate with gear and am
+mtcars[rownames(mtcars) == "Merc 280",] # find the data that has row name == "Merc 280", Note: don't forget to use (,) inside the [] because it the filter
+rownames(mtcars) == "Merc 280"
+mtcars
+
+#find all cars style if they gear == 4
+rownames(mtcars[mtcars$gear == 4,])
+mtcars[mtcars$gear == 4, ]
+# all of these 3 command are the same meaning
+mtcars[mtcars['gear']==4, 'gear']
+mtcars[mtcars['gear']==4,]$gear
+subset(mtcars, gear == 4, select=gear)
+# -----------
+
